@@ -5,18 +5,12 @@ var incluespChars;
 var includeUpper;
 var includeLower;
 
+/* where password will be stored */
+var password = "";
 
-/* List of Characters */
+/* consolidated list of numbers and characters - alphabets and special characters */
 
-/* Special characters */
-
-spChars = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
-
-/* Numeric characters */
-num = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-/* Alphabetical characters */
-alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+charList = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 
 var generate = document.querySelector("#generate");
 
@@ -33,7 +27,7 @@ function generatePassword() {
   
   //if no value
   if (!inputPswdChars) {
-      alert("This needs a value. Please click Generate Password again.");
+      alert("This cannot be blank. Please click Generate Password again.");
   } 
   
   if (inputPswdChars < 8 || inputPswdChars > 128) {
