@@ -8,7 +8,7 @@ The user will be prompted to choose from the following password criteria:
 
 -Character type:
 
--Special characters (see examples)
+-Special characters 
 
 -Numeric characters
 
@@ -18,11 +18,9 @@ The user will be prompted to choose from the following password criteria:
 
 The application validates user input and ensures that at least one character type is selected. Once all prompts are answered, the user will be presented with a password matching the answered prompts.
 
-The user should alsohas  the option to click a button to copy the password to their clipboard. The application can adapt to multiple screen sizes.
+The user also has  the option to click a button to copy the password to their clipboard. The application can adapt to multiple screen sizes.
 
-Your application should be deployed to GitHub Pages.
-
-Screenshots of the pages are as follows:
+Screenshot of the page is as follows:
 
 ![ScreenShot](/Assets/main.png)
  
