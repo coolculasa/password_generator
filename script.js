@@ -49,7 +49,6 @@ function generatePassword() {
       includeUpper = confirm("Will this include uppercase letters?"); // Criteria 3
       includeLower = confirm("Will this include lowercase letters?"); // Critera 4
 
-
       // if user did not choose any criteria 
       if (!includeNum && !includespChars && !includeUpper && !includeLower) {
         alert("You must choose a criteria. Please click Generate Password again.");
@@ -165,7 +164,8 @@ function generatePassword() {
         } //end if Criteria 4
       } // end if user selects 1-3 criteria
 
-        console.log("Total characaters: " + passwordCtr);
+        console.log("Total characters: " + passwordCtr);
+        console.log("User input chars: " + inputPswdChars);
 
         //generate remaining characters
 
@@ -174,14 +174,9 @@ function generatePassword() {
             password = password + charList.charAt(Math.floor(Math.random() * Math.floor(charList.length - 1)));      
         }
 
-        
+  
 
-
-
-      } //end else statement
-
-      console.log(passwordCtr);
-      
+      } //end else statement      
 
   }
 
