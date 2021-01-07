@@ -20,44 +20,43 @@ generate.addEventListener("click", function () {
 });
 
 function generatePassword() {
+
   // ask number of characters from user and store in a variable 
   inputPswdChars = parseInt(prompt("Choose between 8 and 128 characters for the password"));
 
   // validate input
-  
-  //if no value
+  if (!inputPswdChars) { //if no value
+    alert("This cannot be blank. Please click Generate Password again.");
+  }
 
-  if (!inputPswdChars) {
-      alert("This cannot be blank. Please click Generate Password again.");
-  } 
-  
-  if (inputPswdChars < 8 || inputPswdChars > 128) {
+  else if (inputPswdChars < 8 || inputPswdChars > 128) {
       
-      inputPswdChars = parseInt(prompt("Not within the range. Choose between 8 and 128 characters for the password"));
+      inputPswdChars = alert("Not within the range. Please click Generate Password again.");
   }
   
   else {
-      // prompt for other criteria
+  // prompt for other criteria
       includeNum = confirm("Will the password include numbers?");
       includespChars = confirm("Will this include special characters?");
       includeUpper = confirm("Will this include uppercase letters?");
       includeLower = confirm("Will this include lowercase letters?");
+
+      // if user did not choose any criteria 
+      if (!includeNum && !includespChars && !includeUpper && !includeLower) {
+        alert("You must choose a criteria. Please click Generate Password again.");
+      }
+
+      else {
+        //generate password characters based on length chosen by user
+        for(var i = 0; i < inputPswdChars; i++)
+        {
+          password = password + charList.charAt(Math.floor(Math.random() * Math.floor(charList.length - 1)));
+          
+        }
+      }
   }
 
-   // if user did not choose any criteria 
-   if (!includeNum && !includespChars && !includeUpper && !includeLower) {
-      alert("You must choose a criteria. Please click Generate Password again.");
-  }
-
-   else
-  { //generate password characters based on length chosen by user
-    for(var i = 0; i <= inputPswdChars.length; i++)
-    {
-        password = password + charList.charAt(Math.floor(Math.random() * Math.floor(charList.length - 1)));
-    }
-  }
-
-
+  return password;
 }
 
 // on mouse click on Copy to Clipboard, run function so that password will be copied to clipboard
