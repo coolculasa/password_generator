@@ -1,3 +1,10 @@
+/* user input for criteria  */
+var inputPswd;
+var includeNum;
+var incluespChars;
+var includeUpper;
+var includeLower;
+
 /* List of Characters */
 
 /* Special characters */
@@ -13,7 +20,7 @@ alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "
 
 function generatePassword() {
   // ask number of characters from user and store in a variable 
-  var inputPswd = parseInt(prompt("Choose from 8 to 128 characters for the password"));
+  inputPswd = parseInt(prompt("Choose between 8 and 128 characters for the password"));
 
   // validate input
   
@@ -22,10 +29,15 @@ function generatePassword() {
       alert("This needs a value");
   } else if (inputPswd < 8 || inputPswd > 128) {
       
-      inputPswd = parseInt(prompt("Choose the passwod length: between 8 and 128"));
+      inputPswd = parseInt(prompt("Not within the range. Choose between 8 and 128 for the password"));
 
   } else {
       // prompt for other criteria
-
+      includeNum = confirm("Will the password include numbers?");
+      includespChars = confirm("Will this include special characters?");
+      includeUpper = confirm("Will this include uppercase letters?");
+      includeLower = confirm("Will this include lowercase letters?");
   };
+
+
 }
