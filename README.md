@@ -24,7 +24,7 @@ Your application should be deployed to GitHub Pages.
 
 Screenshots of the pages are as follows:
 
-![ScreenShot](/Screenshots/main.png)
+![ScreenShot](/Assets/main.png)
  
 The deployed URL is https://coolculasa.github.io/password_generator
 The URL of the github repository is https://github.com/coolculasa/password_generator
