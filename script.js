@@ -8,9 +8,15 @@ var includeLower;
 /* where password will be stored */
 var password = "";
 
-/* consolidated list of numbers and characters - alphabets and special characters */
+/* counter for password characters generated */
+var passwordCtr = 0;
 
-charList = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+/* list of numbers and characters */
+var charList = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+var spCharList = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+var numList = "1234567890";
+var upperCharList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowerCharList = "abcdefghijklmnopqrstuvwxyz";
 
 var generate = document.querySelector("#generate");
 
@@ -36,23 +42,49 @@ function generatePassword() {
   
   else {
   // prompt for other criteria
-      includeNum = confirm("Will the password include numbers?");
-      includespChars = confirm("Will this include special characters?");
-      includeUpper = confirm("Will this include uppercase letters?");
-      includeLower = confirm("Will this include lowercase letters?");
+      includeNum = confirm("Will the password include numbers?"); // Criteria 1
+      includespChars = confirm("Will this include special characters?"); // Criteria 2
+      includeUpper = confirm("Will this include uppercase letters?"); // Criteria 3
+      includeLower = confirm("Will this include lowercase letters?"); // Critera 4
 
       // if user did not choose any criteria 
       if (!includeNum && !includespChars && !includeUpper && !includeLower) {
         alert("You must choose a criteria. Please click Generate Password again.");
       }
 
-      else {
-        //generate password characters based on length chosen by user
-        for(var i = 0; i < inputPswdChars; i++)
-        {
-          password = password + charList.charAt(Math.floor(Math.random() * Math.floor(charList.length - 1)));
-          
+      else { //generate password characters based on length and critera chosen by user
+        // if user selects Criteria 1
+        if (includeNum) {
+          password = password + numList.charAt(Math.floor(Math.random() * Math.floor(numList.length - 1)));
+          passwordCtr ++;
         }
+
+        if (includespChars) {
+          for(var i = 0; i < 1; i++)
+            password = password + spCharList.charAt(Math.floor(Math.random() * Math.floor(spCharList.length - 1)));
+            passwordCtr ++;
+        }
+
+        if (includeUpper) {
+          for(var i = 0; i < 1; i++)
+            password = password + upperCharList.charAt(Math.floor(Math.random() * Math.floor(upperCharList.length - 1)));
+            passwordCtr ++;
+        }
+
+        if (includeLower) {
+          for(var i = 0; i < 1; i++)
+            password = password + lowerCharList.charAt(Math.floor(Math.random() * Math.floor(lowerCharList.length - 1)));
+            passwordCtr ++;
+        }
+
+      }
+      console.log(passwordCtr);
+      //generate remaining characters
+
+      for(var i = 0; i < (inputPswdChars-passwordCtr); i++)
+      {
+        password = password + charList.charAt(Math.floor(Math.random() * Math.floor(charList.length - 1)));
+        
       }
   }
 
