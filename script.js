@@ -14,7 +14,7 @@ charList = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !#$%&
 
 var generate = document.querySelector("#generate");
 
-// on mouse click run function so that password will be displayed in text area
+// on mouse click on Generate Password, run function so that password will be displayed in text area
 generate.addEventListener("click", function () {
     document.getElementById("password").placeholder = generatePassword();
 });
@@ -26,6 +26,7 @@ function generatePassword() {
   // validate input
   
   //if no value
+
   if (!inputPswdChars) {
       alert("This cannot be blank. Please click Generate Password again.");
   } 
@@ -48,6 +49,27 @@ function generatePassword() {
       alert("You must choose a criteria. Please click Generate Password again.");
   }
 
+   else
+  { //generate password characters based on length chosen by user
+    for(var i = 0; i <= inputPswdChars.length; i++)
+    {
+        password = password + charList.charAt(Math.floor(Math.random() * Math.floor(charList.length - 1)));
+    }
+  }
 
+
+}
+
+// on mouse click on Copy to Clipboard, run function so that password will be copied to clipboard
+var copy = document.querySelector("#copy");
+copy.addEventListener("click", function () {
+    copyPassword();
+  });
+
+//function to copy password to clipboard
+function copyPassword(){
+  document.getElementById("password").select();
+  document.execCommand("Copy");
+  alert("Password has been copied to clipboard.");
 
 }
