@@ -16,7 +16,7 @@ var generate = document.querySelector("#generate");
 
 // on mouse click on Generate Password, run function so that password will be displayed in text area
 generate.addEventListener("click", function () {
-    document.getElementById("password").placeholder = generatePassword();
+    document.getElementById("password").value = generatePassword();
 });
 
 function generatePassword() {
