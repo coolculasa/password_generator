@@ -77,15 +77,16 @@ function generatePassword() {
             passwordCtr ++;
         }
 
+        //generate remaining characters
+
+        for(var i = 0; i < (inputPswdChars-passwordCtr); i++)
+        {
+            password = password + charList.charAt(Math.floor(Math.random() * Math.floor(charList.length - 1)));      
+        }
+
       }
       console.log(passwordCtr);
-      //generate remaining characters
 
-      for(var i = 0; i < (inputPswdChars-passwordCtr); i++)
-      {
-        password = password + charList.charAt(Math.floor(Math.random() * Math.floor(charList.length - 1)));
-        
-      }
   }
 
   return password;
